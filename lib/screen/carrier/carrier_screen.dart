@@ -10,7 +10,16 @@ class _CarrierScreenState extends State<CarrierScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(appBar: AppBar(
-      title:const Text("Carrier Objective ")
+      backgroundColor: Colors.blueAccent,
+      title: const Text(
+        "Carrier Objective",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      centerTitle: true,
     ),),);
   }
 }

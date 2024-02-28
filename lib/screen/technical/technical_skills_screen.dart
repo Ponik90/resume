@@ -9,6 +9,17 @@ class TechnicalSkillsScreen extends StatefulWidget {
 class _TechnicalSkillsScreenState extends State<TechnicalSkillsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text("technical skill"),),);
+    return Scaffold(appBar: AppBar(
+      backgroundColor: Colors.blueAccent,
+      title: const Text(
+        "Technical Skill",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      centerTitle: true,
+    ),);
   }
 }

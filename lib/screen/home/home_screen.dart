@@ -39,363 +39,63 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-         SingleChildScrollView(
-           scrollDirection: Axis.vertical,
-           child: Column(
-             children: [
-               //contact info
-               Column(
+          Expanded(
+            child: SingleChildScrollView(
+               child: Column(
                  children: [
-                   InkWell(onTap: () {
-                     Navigator.pushNamed(context, 'contact');
-                   },
-                     child: Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Row(
-                         children: [
-                           Image.asset(
-                             "assets/iconimeg/contact_info.png",
-                             width: 40,
-                             height: 40,
-                           ),
-                           const SizedBox(
-                             width: 20,
-                           ),
-                           const Text(
-                             "Contact info",
-                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                           ),
-                           const Spacer(),
-                           const Icon(Icons.arrow_forward_ios_outlined)
-                         ],
-                       ),
-                     ),
-                   ),
-                   const Divider(),
+                   buildoption(iconimage: 'contact_info.png',name: 'Contact info',routes: 'contact'),
+                   buildoption(iconimage: 'briefcase.png',name: 'Carrier Objective',routes: 'carrier'),
+                   buildoption(iconimage: 'user.png',name: 'Personal Details',routes: 'personal'),
+                   buildoption(iconimage: 'mortarboard.png',name: 'Eduction',routes: 'eduction'),
+                   buildoption(iconimage: 'thinking.png',name: 'Experiences',routes: 'experience'),
+                   buildoption(iconimage: 'experience.png',name: 'Technical Skill',routes: 'technical'),
+                   buildoption(iconimage: 'open_book.png',name: 'Interest/Hobbies',routes: ''),
+                   buildoption(iconimage: 'project.png',name: 'Projects',routes: 'projects'),
+                   buildoption(iconimage: 'experience.png',name: 'Achievements',routes: 'achievement'),
+                   buildoption(iconimage: 'handshake.png',name: 'References',routes: 'references'),
+                   buildoption(iconimage: 'declaration.png',name: 'Declaration',routes: 'declaration'),
                  ],
-               ),
-
-               //carrier objective
-               Column(
-                 children: [
-                   InkWell(onTap: () {
-                     Navigator.pushNamed(context, 'carrier');
-                   },
-                     child: Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Row(
-                         children: [
-                           Image.asset(
-                             "assets/iconimeg/briefcase.png",
-                             width: 40,
-                             height: 40,
-                           ),
-                           const SizedBox(
-                             width: 20,
-                           ),
-                           const Text(
-                             "Carrier Objective",
-                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                           ),
-                           const Spacer(),
-                           const Icon(Icons.arrow_forward_ios_outlined)
-                         ],
-                       ),
-                     ),
-                   ),
-                   const Divider(),
-                 ],
-               ),
-
-               //personal details
-               Column(
-                 children: [
-                   InkWell(onTap: () {
-                     Navigator.pushNamed(context, 'personal');
-                   },
-                     child: Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Row(
-                         children: [
-                           Image.asset(
-                             "assets/iconimeg/user.png",
-                             width: 40,
-                             height: 40,
-                           ),
-                           const SizedBox(
-                             width: 20,
-                           ),
-                           const Text(
-                             "Personal Details",
-                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                           ),
-                           const Spacer(),
-                           const Icon(Icons.arrow_forward_ios_outlined)
-                         ],
-                       ),
-                     ),
-                   ),
-                   const Divider(),
-                 ],
-               ),
-
-               //eduction
-               Column(
-                 children: [
-                   InkWell(onTap: () {
-                     Navigator.pushNamed(context,'eduction');
-                   },
-                     child: Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Row(
-                         children: [
-                           Image.asset(
-                             "assets/iconimeg/mortarboard.png",
-                             width: 40,
-                             height: 40,
-                           ),
-                           const SizedBox(
-                             width: 20,
-                           ),
-                           const Text(
-                             "Eduction",
-                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                           ),
-                           const Spacer(),
-                           const Icon(Icons.arrow_forward_ios_outlined)
-                         ],
-                       ),
-                     ),
-                   ),
-                   const Divider(),
-                 ],
-               ),
-
-               //experience
-               Column(
-                 children: [
-                   InkWell(onTap: () {
-                     Navigator.pushNamed(context,'experience');
-                   },
-                     child: Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Row(
-                         children: [
-                           Image.asset(
-                             "assets/iconimeg/thinking.png",
-                             width: 40,
-                             height: 40,
-                           ),
-                           const SizedBox(
-                             width: 20,
-                           ),
-                           const Text(
-                             "Experiences",
-                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                           ),
-                           const Spacer(),
-                           const Icon(Icons.arrow_forward_ios_outlined)
-                         ],
-                       ),
-                     ),
-                   ),
-                   const Divider(),
-                 ],
-               ),
-
-               //technical skills
-               Column(
-                 children: [
-                   InkWell(onTap: () {
-                     Navigator.pushNamed(context, 'technical');
-                   },
-                     child: Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Row(
-                         children: [
-                           Image.asset(
-                             "assets/iconimeg/declaration.png",
-                             width: 40,
-                             height: 40,
-                           ),
-                           const SizedBox(
-                             width: 20,
-                           ),
-                           const Text(
-                             "Technical Skills",
-                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                           ),
-                           const Spacer(),
-                           const Icon(Icons.arrow_forward_ios_outlined)
-                         ],
-                       ),
-                     ),
-                   ),
-                   const Divider(),
-                 ],
-               ),
-
-               //hobbies
-               Column(
-                 children: [
-                   Padding(
-                     padding: const EdgeInsets.all(8.0),
-                     child: Row(
-                       children: [
-                         Image.asset(
-                           "assets/iconimeg/open_book.png",
-                           width: 40,
-                           height: 40,
-                         ),
-                         const SizedBox(
-                           width: 20,
-                         ),
-                         const Text(
-                           "Interest/Hobbies",
-                           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                         ),
-                         const Spacer(),
-                         const Icon(Icons.arrow_forward_ios_outlined)
-                       ],
-                     ),
-                   ),
-                   const Divider(),
-                 ],
-               ),
-
-               //project
-               Column(
-                 children: [
-                   InkWell(onTap: () {
-                     Navigator.pushNamed(context,'project');
-                   },
-                     child: Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Row(
-                         children: [
-                           Image.asset(
-                             "assets/iconimeg/project.png",
-                             width: 40,
-                             height: 40,
-                           ),
-                           const SizedBox(
-                             width: 20,
-                           ),
-                           const Text(
-                             "Projects",
-                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                           ),
-                           const Spacer(),
-                           const Icon(Icons.arrow_forward_ios_outlined)
-                         ],
-                       ),
-                     ),
-                   ),
-                   const Divider(),
-                 ],
-               ),
-
-               //achievement
-               Column(
-                 children: [
-                   InkWell(onTap:  () {
-                     Navigator.pushNamed(context,'achievement');
-                   },
-                     child: Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Row(
-                         children: [
-                           Image.asset(
-                             "assets/iconimeg/experience.png",
-                             width: 40,
-                             height: 40,
-                           ),
-                           const SizedBox(
-                             width: 20,
-                           ),
-                           const Text(
-                             "Achievements",
-                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                           ),
-                           const Spacer(),
-                           const Icon(Icons.arrow_forward_ios_outlined)
-                         ],
-                       ),
-                     ),
-                   ),
-                   const Divider(),
-                 ],
-               ),
-
-               //references
-               Column(
-                 children: [
-                   InkWell(onTap: () {
-                     Navigator.pushNamed(context,'references');
-                   },
-                     child: Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Row(
-                         children: [
-                           Image.asset(
-                             "assets/iconimeg/handshake.png",
-                             width: 40,
-                             height: 40,
-                           ),
-                           const SizedBox(
-                             width: 20,
-                           ),
-                           const Text(
-                             "references",
-                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                           ),
-                           const Spacer(),
-                           const Icon(Icons.arrow_forward_ios_outlined)
-                         ],
-                       ),
-                     ),
-                   ),
-                   const Divider(),
-                 ],
-               ),
-
-               //declaration
-               Column(
-                 children: [
-                   InkWell(
-                     onTap: () {
-                       Navigator.pushNamed(context,'declaration');
-                     },
-                     child: Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Row(
-                         children: [
-                           Image.asset(
-                             "assets/iconimeg/declaration.png",
-                             width: 40,
-                             height: 40,
-                           ),
-                           const SizedBox(
-                             width: 20,
-                           ),
-                           const Text(
-                             "Declaration",
-                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                           ),
-                           const Spacer(),
-                           const Icon(Icons.arrow_forward_ios_outlined)
-                         ],
-                       ),
-                     ),
-                   ),
-                   const Divider(),
-                 ],
-               ),
-             ],
-           ),
-         )
+               )
+            ),
+          )
         ],
       ),
     );
+  }
+
+  Widget buildoption({required String iconimage,required String name,required String routes})
+  {
+   return Column(
+     children: [
+       InkWell(
+         onTap: () {
+           Navigator.pushNamed(context, routes);
+         },
+         child: Padding(
+           padding: const EdgeInsets.all(8.0),
+           child: Row(
+             children: [
+               Image.asset(
+                 "assets/iconimeg/$iconimage",
+                 width: 40,
+                 height: 40,
+               ),
+               const SizedBox(
+                 width: 20,
+               ),
+               Text(
+                 "$name",
+                 style: const TextStyle(
+                     fontWeight: FontWeight.bold, fontSize: 20),
+               ),
+               const Spacer(),
+               const Icon(Icons.arrow_forward_ios_outlined)
+             ],
+           ),
+         ),
+       ),
+       const Divider(),
+     ],
+   );
   }
 }

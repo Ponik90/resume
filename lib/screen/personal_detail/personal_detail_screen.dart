@@ -9,6 +9,17 @@ class PersonalDetailScreen extends StatefulWidget {
 class _PersonalDetailScreenState extends State<PersonalDetailScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text("personal Detail"),),);
+    return Scaffold(appBar: AppBar(
+      backgroundColor: Colors.blueAccent,
+      title: const Text(
+        "Personal detail",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      centerTitle: true,
+    ),);
   }
 }

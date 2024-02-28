@@ -9,10 +9,12 @@ import 'package:resume/screen/home/home_screen.dart';
 import 'package:resume/screen/personal_detail/personal_detail_screen.dart';
 import 'package:resume/screen/project/project_screen.dart';
 import 'package:resume/screen/references/references_screen.dart';
+import 'package:resume/screen/splash/splash_screen.dart';
 import 'package:resume/screen/technical/technical_skills_screen.dart';
 
 Map<String, WidgetBuilder> screenname = {
-  '/': (context) => const HomeScreen(),
+  '/': (context) => const SplashScreen(),
+  'homescreen':(context) => const HomeScreen(),
   'contact': (context) => const ContactInfoScreen(),
   'carrier': (context) => const CarrierScreen(),
   'personal': (context) => const PersonalDetailScreen(),

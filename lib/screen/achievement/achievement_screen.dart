@@ -10,7 +10,18 @@ class _AchievementScreenState extends State<AchievementScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("achievement"),),
+      appBar: AppBar(
+        backgroundColor: Colors.blueAccent,
+        title: const Text(
+          "Achievement",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+      ),
     );
   }
 }

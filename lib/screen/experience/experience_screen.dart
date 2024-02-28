@@ -9,6 +9,17 @@ class ExperienceScreen extends StatefulWidget {
 class _ExperienceScreenState extends State<ExperienceScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text("Experiences"),),);
+    return Scaffold(appBar: AppBar(
+      backgroundColor: Colors.blueAccent,
+      title: const Text(
+        "Experinces",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      centerTitle: true,
+    ),);
   }
 }
