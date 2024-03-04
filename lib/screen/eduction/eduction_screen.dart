@@ -201,7 +201,7 @@ class _EductionScreenState extends State<EductionScreen> {
                               child: InkWell(
                                 onTap: () {
                                   FocusManager.instance.primaryFocus?.unfocus();
-                                  if(formkey==formkey.currentState!.validate())
+                                  if(formkey.currentState!.validate())
                                   {
                                     String degree = txtdegree.text;
                                     String college = txtcollege.text;

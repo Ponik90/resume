@@ -199,7 +199,7 @@ class _PersonalDetailScreenState extends State<PersonalDetailScreen> {
                               child: InkWell(
                                 onTap: () {
                                   FocusManager.instance.primaryFocus?.unfocus();
-                                  if(formkey==formkey.currentState!.validate())
+                                  if(formkey.currentState!.validate())
                                     {
                                       String DOB = txtdob.text;
                                       String nation = txtnationality.text;

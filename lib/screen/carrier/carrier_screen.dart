@@ -145,7 +145,7 @@ class _CarrierScreenState extends State<CarrierScreen> {
                       Center(
                         child: InkWell(onTap: () {
                           FocusManager.instance.primaryFocus?.unfocus();
-                          if(formkey==formkey.currentState!.validate())
+                          if(formkey.currentState!.validate())
                           {
                             String object =txtcobject.text;
                             String desig=txtcdesig.text;

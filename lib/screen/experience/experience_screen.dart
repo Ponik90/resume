@@ -260,7 +260,10 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                                       ),
                                       controller: txtdexit,
                                       validator: (value) {
-                                        return "enter the exit date";
+                                       if(value!.isEmpty || value==null)
+                                         {
+                                           return "enter the exit date";
+                                         }
                                       },
                                     ),
                                   ],
@@ -275,8 +278,8 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                           Center(
                             child: InkWell(
                               onTap: () {
-
-                                if(formkey==formkey.currentState!.validate())
+                                FocusManager.instance.primaryFocus?.unfocus();
+                                if(formkey.currentState!.validate())
                                   {
                                     String cname = txtcname.text;
                                     String college = txtcollege.text;

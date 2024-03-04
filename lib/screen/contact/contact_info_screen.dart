@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../utiles/global_screen_var.dart';
+
 class ContactInfoScreen extends StatefulWidget {
   const ContactInfoScreen({super.key});
 
@@ -234,13 +236,13 @@ class _ContactInfoScreenState extends State<ContactInfoScreen> {
                             Center(
                               child: InkWell(onTap: () {
                                 FocusManager.instance.primaryFocus?.unfocus();
-                                    if(formkey==formkey.currentState!.validate())
+                                    if(formkey.currentState!.validate())
                                       {
-                                        String name =txtname.text;
-                                        String email=txtemail.text;
-                                        String phone=txtphone.text;
-                                        String add=txtadd.text;
-                                         print("$name $email $phone $add");
+                                        g1.contactName=txtname.text;
+                                        g1.contactName =txtemail.text;
+                                        g1.contactName =txtphone.text;
+                                        g1.contactName=txtadd.text;
+                                        formkey.currentState!.reset();
                                       }
                               },
                                 child: Container(
@@ -267,15 +269,19 @@ class _ContactInfoScreenState extends State<ContactInfoScreen> {
                     width: MediaQuery.sizeOf(context).width * 0.90,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10)),
-                    child:  const Stack(
+                    child: Stack(
+                      alignment: Alignment.bottomRight,
                       children: [
                         CircleAvatar(
                           //radius: 70,
                           backgroundColor: Colors.black26,
                           maxRadius: 50,
-                          child: Text(
-                            "ADD",
-                            style: TextStyle(color: Colors.black),
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: const Text(
+                              "ADD",
+                              style: TextStyle(color: Colors.black),
+                            ),
                           ),
                         ),
                         CircleAvatar(backgroundColor: Colors.blueAccent,maxRadius: 15,child: Icon(Icons.add,color: Colors.white,),),

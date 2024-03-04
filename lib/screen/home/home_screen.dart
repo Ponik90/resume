@@ -54,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                    buildoption(iconimage: 'experience.png',name: 'Achievements',routes: 'achievement'),
                    buildoption(iconimage: 'handshake.png',name: 'References',routes: 'references'),
                    buildoption(iconimage: 'declaration.png',name: 'Declaration',routes: 'declaration'),
+                   buildoption(iconimage: 'open_cardboard_box.png',name: 'Resume',routes: 'resume'),
                  ],
                )
             ),
