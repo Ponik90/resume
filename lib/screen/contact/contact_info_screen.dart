@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../utiles/global_screen_var.dart';
 
@@ -10,13 +13,15 @@ class ContactInfoScreen extends StatefulWidget {
 }
 
 class _ContactInfoScreenState extends State<ContactInfoScreen> {
-  TextEditingController txtname =TextEditingController();
-  TextEditingController txtemail =TextEditingController();
-  TextEditingController txtphone =TextEditingController();
-  TextEditingController txtadd =TextEditingController();
+  TextEditingController txtname = TextEditingController();
+  TextEditingController txtemail = TextEditingController();
+  TextEditingController txtphone = TextEditingController();
+  TextEditingController txtadd = TextEditingController();
 
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   bool iscontact = true;
+
+  String path = "";
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +30,7 @@ class _ContactInfoScreenState extends State<ContactInfoScreen> {
         FocusManager.instance.primaryFocus?.unfocus();
       },
       child: Scaffold(
-
         appBar: AppBar(
-
           backgroundColor: Colors.blueAccent,
           title: const Text(
             "Add Your Contact",
@@ -63,7 +66,8 @@ class _ContactInfoScreenState extends State<ContactInfoScreen> {
                         decoration: BoxDecoration(
                           border: Border(
                             bottom: BorderSide(
-                              color: iscontact ? Colors.amber : Colors.blueAccent,
+                              color:
+                                  iscontact ? Colors.amber : Colors.blueAccent,
                               width: 2,
                             ),
                           ),
@@ -117,19 +121,19 @@ class _ContactInfoScreenState extends State<ContactInfoScreen> {
             ),
             Expanded(
               child: IndexedStack(
-                index: iscontact?0:1,
-
+                index: iscontact ? 0 : 1,
                 children: [
                   SingleChildScrollView(
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 0.90,
                       padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10)),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10)),
                       child: Form(
                         key: formkey,
                         child: Column(
                           children: [
-
                             TextFormField(
                               keyboardType: TextInputType.name,
                               textInputAction: TextInputAction.next,
@@ -140,15 +144,13 @@ class _ContactInfoScreenState extends State<ContactInfoScreen> {
                                   color: Colors.black45,
                                 ),
                                 hintText: "Name",
-
                               ),
                               controller: txtname,
                               validator: (value) {
-                                  if(value!.isEmpty || value==null)
-                                    {
-                                      return "Name is required";
-                                    }
-                                  return null;
+                                if (value!.isEmpty || value == null) {
+                                  return "Name is required";
+                                }
+                                return null;
                               },
                             ),
                             const SizedBox(
@@ -164,26 +166,22 @@ class _ContactInfoScreenState extends State<ContactInfoScreen> {
                                   color: Colors.black45,
                                 ),
                                 hintText: "Email",
-
                               ),
                               controller: txtemail,
                               validator: (value) {
-                                if(value!.isEmpty||value==null)
-                                  {
-                                    return "email is required";
-                                  }
-                                else if ( !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                    .hasMatch(value))
-                                  {
-                                      return "please enter email properly";
-                                  }
+                                if (value!.isEmpty || value == null) {
+                                  return "email is required";
+                                } else if (!RegExp(
+                                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                    .hasMatch(value)) {
+                                  return "please enter email properly";
+                                }
                               },
-
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                             TextFormField(
+                            TextFormField(
                               keyboardType: TextInputType.number,
                               textInputAction: TextInputAction.next,
                               decoration: const InputDecoration(
@@ -193,24 +191,20 @@ class _ContactInfoScreenState extends State<ContactInfoScreen> {
                                   color: Colors.black45,
                                 ),
                                 hintText: "Phone",
-
                               ),
                               controller: txtphone,
-                               validator: (value) {
-                                 if(value!.isEmpty||value==null)
-                                   {
-                                     return "enter the your phone number";
-                                   }
-                                 else if(value.length!=10)
-                                   {
-                                     return "please enter the 10 digits";
-                                   }
-                               },
+                              validator: (value) {
+                                if (value!.isEmpty || value == null) {
+                                  return "enter the your phone number";
+                                } else if (value.length != 10) {
+                                  return "please enter the 10 digits";
+                                }
+                              },
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                             TextFormField(
+                            TextFormField(
                               maxLines: 3,
                               keyboardType: TextInputType.name,
                               textInputAction: TextInputAction.done,
@@ -223,28 +217,35 @@ class _ContactInfoScreenState extends State<ContactInfoScreen> {
                                 hintText: "Address",
                               ),
                               controller: txtadd,
-                               validator: (value) {
-                                 if(value!.isEmpty||value==null)
-                                   {
-                                     return "please enter the address";
-                                   }
-                               },
-
-                            ),
-                            const SizedBox(height: 30,),
-
-                            Center(
-                              child: InkWell(onTap: () {
-                                FocusManager.instance.primaryFocus?.unfocus();
-                                    if(formkey.currentState!.validate())
-                                      {
-                                        g1.contactName=txtname.text;
-                                        g1.contactName =txtemail.text;
-                                        g1.contactName =txtphone.text;
-                                        g1.contactName=txtadd.text;
-                                        formkey.currentState!.reset();
-                                      }
+                              validator: (value) {
+                                if (value!.isEmpty || value == null) {
+                                  return "please enter the address";
+                                }
                               },
+                            ),
+                            const SizedBox(
+                              height: 30,
+                            ),
+                            Center(
+                              child: InkWell(
+                                onTap: () {
+                                  FocusManager.instance.primaryFocus?.unfocus();
+                                  if (formkey.currentState!.validate()) {
+                                    g1.contactName = txtname.text;
+                                    g1.contactEmail = txtemail.text;
+                                    g1.contactPhone = txtphone.text;
+                                    g1.contactAddress = txtadd.text;
+                                    formkey.currentState!.reset();
+
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content: Text("Saves"),
+                                      ),
+                                    );
+
+                                    iscontact=false;
+                                  }
+                                },
                                 child: Container(
                                   height: 30,
                                   width: 80,
@@ -268,30 +269,55 @@ class _ContactInfoScreenState extends State<ContactInfoScreen> {
                     height: 200,
                     width: MediaQuery.sizeOf(context).width * 0.90,
                     alignment: Alignment.center,
-                    decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10)),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
                     child: Stack(
                       alignment: Alignment.bottomRight,
                       children: [
-                        CircleAvatar(
-                          //radius: 70,
-                          backgroundColor: Colors.black26,
-                          maxRadius: 50,
-                          child: Container(
-                            alignment: Alignment.center,
-                            child: const Text(
-                              "ADD",
-                              style: TextStyle(color: Colors.black),
+                        path.isEmpty
+                            ? const CircleAvatar(
+                                backgroundColor: Colors.black26,
+                                maxRadius: 50,
+                                child: Text(
+                                  "ADD",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              )
+                            : CircleAvatar(
+                                backgroundColor: Colors.black26,
+                                maxRadius: 50,
+                                backgroundImage: FileImage(
+                                  File("${path}"),
+                                ),
+                              ),
+                        InkWell(
+                          onTap: () async {
+                            ImagePicker picker = ImagePicker();
+                            XFile? image = await picker.pickImage(
+                                source: ImageSource.gallery);
+                            setState(() {
+                              path = image!.path;
+                              g1.contactImage = image.path;
+                            },);
+                          },
+                          child: const CircleAvatar(
+                            backgroundColor: Colors.blueAccent,
+                            maxRadius: 15,
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.white,
                             ),
                           ),
                         ),
-                        CircleAvatar(backgroundColor: Colors.blueAccent,maxRadius: 15,child: Icon(Icons.add,color: Colors.white,),),
                       ],
                     ),
                   )
                 ],
               ),
             ),
-
           ],
         ),
       ),

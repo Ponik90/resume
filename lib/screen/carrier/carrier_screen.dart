@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../utiles/global_screen_var.dart';
+
 class CarrierScreen extends StatefulWidget {
   const CarrierScreen({super.key});
 
@@ -147,9 +149,10 @@ class _CarrierScreenState extends State<CarrierScreen> {
                           FocusManager.instance.primaryFocus?.unfocus();
                           if(formkey.currentState!.validate())
                           {
-                            String object =txtcobject.text;
-                            String desig=txtcdesig.text;
-                            print("$object $desig ");
+                           g1.carrierObjective=txtcobject.text;
+                            g1.carrierDesignation=txtcdesig.text;
+
+                                formkey.currentState!.reset();
                            }
                         },
                           child: Container(
