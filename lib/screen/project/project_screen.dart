@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../utiles/global_screen_var.dart';
+
 class ProjectScreen extends StatefulWidget {
   const ProjectScreen({super.key});
 
@@ -8,6 +10,11 @@ class ProjectScreen extends StatefulWidget {
 }
 
 class _ProjectScreenState extends State<ProjectScreen> {
+
+  TextEditingController txttitle = TextEditingController();
+  TextEditingController txtroles = TextEditingController();
+  TextEditingController txttechnologie = TextEditingController();
+  TextEditingController txtdescription = TextEditingController();
 
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   @override
@@ -69,6 +76,13 @@ class _ProjectScreenState extends State<ProjectScreen> {
                           border: OutlineInputBorder(),
                           hintStyle: TextStyle(color: Colors.grey),
                         ),
+                        controller: txttitle,
+                        validator: (value) {
+                          if(value!.isEmpty || value==null)
+                            {
+                              return "this field is require";
+                            }
+                        },
                       ),
 
                       const SizedBox(
@@ -133,6 +147,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                           border: OutlineInputBorder(),
                           hintStyle: TextStyle(color: Colors.grey),
                         ),
+                        controller: txtroles,
                       ),
 
                       const SizedBox(height: 10,),
@@ -156,6 +171,13 @@ class _ProjectScreenState extends State<ProjectScreen> {
                           border: OutlineInputBorder(),
                           hintStyle: TextStyle(color: Colors.grey),
                         ),
+                        controller: txttechnologie,
+                        validator: (value) {
+                          if(value!.isEmpty || value==null)
+                          {
+                            return "this field is require";
+                          }
+                        },
                       ),
 
                       const Text(
@@ -178,6 +200,13 @@ class _ProjectScreenState extends State<ProjectScreen> {
                           border: OutlineInputBorder(),
                           hintStyle: TextStyle(color: Colors.grey),
                         ),
+                        controller: txtdescription,
+                        validator: (value) {
+                          if(value!.isEmpty || value==null)
+                          {
+                            return "this field is require";
+                          }
+                        },
                       ),
 
                       const SizedBox(
@@ -188,11 +217,10 @@ class _ProjectScreenState extends State<ProjectScreen> {
                           onTap: () {
                             FocusManager.instance.primaryFocus?.unfocus();
                             if (formkey.currentState!.validate()) {
-                              // g1.experienceCompanyName = txtcname.text;
-                              // g1.experienceSchool = txtcollege.text;
-                              // g1.experienceRoles = txtroles.text;
-                              // g1.experienceJoinedDate = txtdjoined.text;
-                              // g1.experienceExitDate = txtdexit.text;
+                              g1.projectTitle = txttitle.text;
+                              g1.projectRoles = txtroles.text;
+                              g1.projectTechnologies = txttechnologie.text;
+                              g1.projectDescription = txtdescription.text;
 
                               formkey.currentState!.reset();
 

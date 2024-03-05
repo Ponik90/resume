@@ -26,6 +26,7 @@ class _ResumeScreenState extends State<ResumeScreen> {
         ),
         centerTitle: true,
       ),
+      backgroundColor: Colors.grey.shade200,
       body: Column(
         children: [
           Container(
@@ -45,39 +46,157 @@ class _ResumeScreenState extends State<ResumeScreen> {
               ),
             ),
           ),
-         const SizedBox(height: 20,),
-         Expanded(
-           child: SingleChildScrollView(
-             child: Container(
+          const SizedBox(
+            height: 20,
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Container(
                 padding: const EdgeInsets.all(10),
-               color: Colors.blueAccent.withOpacity(0.5),
-               width: MediaQuery.sizeOf(context).width*0.90,
-               child: Column(
-                 crossAxisAlignment: CrossAxisAlignment.start,
-                 children: [
-                   Center(child: CircleAvatar(maxRadius: 100,backgroundImage: FileImage(File("${g1.contactImage}"),),)),
-                   Text("name : ${g1.contactName}",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                   Text("email : ${g1.contactEmail}"),
-                   Text("phone : ${g1.contactPhone}"),
-                   Text("Address : ${g1.contactAddress}"),
-                   Text("Objective : ${g1.carrierObjective}"),
-                   Text("Designation : ${g1.carrierDesignation}"),
-                   Text("DOB : ${g1.personalDOB}"),
-                   Text("Nationality : ${g1.personalNationality}"),
-                   Text("Course : ${g1.eductionCourse}"),
-                   Text("School/College : ${g1.eductionSchool}"),
-                   Text("Percentage : ${g1.eductionPercentage}"),
-                   Text("Year of pass  : ${g1.eductionPass}"),
-                   Text("Company Name  : ${g1.experienceCompanyName}"),
-                   Text("School  : ${g1.experienceSchool}"),
-                   Text("Roles  : ${g1.experienceRoles}"),
-                   Text("Joined Date  : ${g1.experienceJoinedDate}"),
-                   Text("Exit Date  : ${g1.experienceExitDate}"),
-                 ],
-               ),
-             ),
-           ),
-         )
+                color: Colors.white,
+                width: MediaQuery.sizeOf(context).width * 0.90,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: CircleAvatar(
+                        maxRadius: 50,
+                        backgroundImage: FileImage(
+                          File("${g1.contactImage}"),
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "name : ${g1.contactName}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "email : ${g1.contactEmail}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "phone : ${g1.contactPhone}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Address : ${g1.contactAddress}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Objective : ${g1.carrierObjective}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Designation : ${g1.carrierDesignation}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "DOB : ${g1.personalDOB}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Nationality : ${g1.personalNationality}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Course : ${g1.eductionCourse}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "School/College : ${g1.eductionSchool}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Percentage : ${g1.eductionPercentage}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Year of pass  : ${g1.eductionPass}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Company Name  : ${g1.experienceCompanyName}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "School  : ${g1.experienceSchool}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Roles  : ${g1.experienceRoles}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Joined Date  : ${g1.experienceJoinedDate}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Exit Date  : ${g1.experienceExitDate}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Project Title  : ${g1.projectTitle}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
