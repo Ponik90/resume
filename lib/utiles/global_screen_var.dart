@@ -14,8 +14,11 @@ class Global {
 
   //personal
   String? personalDOB;
+  String? personalStates;
   String? personalNationality;
-
+  bool personalEnglish=false;
+  bool personalHindi=false;
+  bool personalGujarati=false;
   //eduction
   String? eductionCourse;
   String? eductionSchool;
@@ -26,6 +29,7 @@ class Global {
   String? experienceCompanyName;
   String? experienceSchool;
   String? experienceRoles;
+  String? experineceEmpStatus;
   String? experienceJoinedDate;
   String? experienceExitDate;
 
@@ -35,4 +39,10 @@ class Global {
   String? projectRoles;
   String? projectTechnologies;
   String? projectDescription;
+
+  //reference
+
+  String? referenceName;
+  String? referenceDesignation;
+  String? referenceOrganization;
 }

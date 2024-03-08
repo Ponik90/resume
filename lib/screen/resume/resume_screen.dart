@@ -58,12 +58,31 @@ class _ResumeScreenState extends State<ResumeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    //image
                     Center(
-                      child: CircleAvatar(
-                        maxRadius: 50,
-                        backgroundImage: FileImage(
-                          File("${g1.contactImage}"),
-                        ),
+                      child: g1.contactImage == null
+                          ? const CircleAvatar(
+                              maxRadius: 50,
+                              child: Icon(
+                                Icons.perm_identity,
+                                size: 60,
+                              ),
+                            )
+                          : CircleAvatar(
+                              maxRadius: 50,
+                              backgroundImage: FileImage(
+                                File("${g1.contactImage}"),
+                              ),
+                            ),
+                    ),
+
+                    //contact
+                    const Text(
+                      "Contact Details :",
+                      style: TextStyle(
+                        color: Colors.blueAccent,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
@@ -94,6 +113,20 @@ class _ResumeScreenState extends State<ResumeScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    //carrier
+                    const Text(
+                      "Carrier Details :",
+                      style: TextStyle(
+                        color: Colors.blueAccent,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     Text(
                       "Objective : ${g1.carrierObjective}",
                       style: const TextStyle(
@@ -108,6 +141,20 @@ class _ResumeScreenState extends State<ResumeScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    //personal
+                    const Text(
+                      "Your Personal Details :",
+                      style: TextStyle(
+                        color: Colors.blueAccent,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     Text(
                       "DOB : ${g1.personalDOB}",
                       style: const TextStyle(
@@ -116,8 +163,59 @@ class _ResumeScreenState extends State<ResumeScreen> {
                       ),
                     ),
                     Text(
+                      "States : ${g1.personalStates}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
                       "Nationality : ${g1.personalNationality}",
                       style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Visibility(
+                      visible: g1.personalEnglish,
+                      child: const Text(
+                        "English",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Visibility(
+                      visible: g1.personalHindi,
+                      child: const Text(
+                        "Hindi",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Visibility(
+                      visible: g1.personalGujarati,
+                      child: const Text(
+                        "Gujarati",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    //Eduction
+                    const Text(
+                      "Eduction Details :",
+                      style: TextStyle(
+                        color: Colors.blueAccent,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
@@ -146,6 +244,20 @@ class _ResumeScreenState extends State<ResumeScreen> {
                     Text(
                       "Year of pass  : ${g1.eductionPass}",
                       style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    //experience
+                    const Text(
+                      "Experience Details :",
+                      style: TextStyle(
+                        color: Colors.blueAccent,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
@@ -185,8 +297,71 @@ class _ResumeScreenState extends State<ResumeScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    
+                    const SizedBox(
+                      height: 10,
+                    ),
+
+                    //project
+                    const Text(
+                      "Project Details :",
+                      style: TextStyle(
+                        color: Colors.blueAccent,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     Text(
                       "Project Title  : ${g1.projectTitle}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Roles  : ${g1.projectRoles}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Technologies  : ${g1.projectTechnologies}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Project Description : ${g1.projectDescription}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+
+                    //reference
+                    Text(
+                      "Reference Name : ${g1.referenceName}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Designation : ${g1.referenceDesignation}",
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Organization/Institute : ${g1.referenceOrganization}",
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

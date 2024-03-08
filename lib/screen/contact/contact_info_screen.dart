@@ -243,7 +243,7 @@ class _ContactInfoScreenState extends State<ContactInfoScreen> {
                                       ),
                                     );
 
-                                    iscontact=false;
+                                    iscontact = false;
                                   }
                                 },
                                 child: Container(
@@ -298,10 +298,12 @@ class _ContactInfoScreenState extends State<ContactInfoScreen> {
                             ImagePicker picker = ImagePicker();
                             XFile? image = await picker.pickImage(
                                 source: ImageSource.gallery);
-                            setState(() {
-                              path = image!.path;
-                              g1.contactImage = image.path;
-                            },);
+                            setState(
+                              () {
+                                path = image!.path;
+                                g1.contactImage = image.path;
+                              },
+                            );
                           },
                           child: const CircleAvatar(
                             backgroundColor: Colors.blueAccent,

@@ -15,6 +15,12 @@ class _PersonalDetailScreenState extends State<PersonalDetailScreen> {
 
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
+  String status = "Unmarried";
+
+  bool English = false;
+  bool Hindi = false;
+  bool Gujrati = false;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -99,25 +105,59 @@ class _PersonalDetailScreenState extends State<PersonalDetailScreen> {
                             letterSpacing: 1,
                           ),
                         ),
-                        const SizedBox(
-                          height: 5,
+
+                        RadioListTile(
+                          value: "Unmarried",
+                          groupValue: status,
+                          onChanged: (value) {
+                            setState(
+                              () {
+                                status = value!;
+                                g1.personalStates = value;
+                              },
+                            );
+                          },
+                          title: Text(
+                            "Unmarried",
+                            style: status == "Unmarried"
+                                ? const TextStyle(
+                                    color: Colors.blueAccent,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  )
+                                : const TextStyle(
+                                    fontSize: 15,
+                                  ),
+                          ),
+                          activeColor: Colors.blueAccent,
+                          contentPadding: EdgeInsets.zero,
                         ),
-                        const Text(
-                          "Single",
-                          style: TextStyle(
-                              color: Colors.blueAccent,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15),
-                        ),
-                        const Text(
-                          "Married",
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15),
-                        ),
-                        const SizedBox(
-                          height: 10,
+
+                        RadioListTile(
+                          value: "Married",
+                          groupValue: status,
+                          onChanged: (value) {
+                            setState(
+                              () {
+                                status = value!;
+                                g1.personalStates = value;
+                              },
+                            );
+                          },
+                          title: Text(
+                            "Married",
+                            style: status != "Unmarried"
+                                ? const TextStyle(
+                                    color: Colors.blueAccent,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  )
+                                : const TextStyle(
+                                    fontSize: 15,
+                                  ),
+                          ),
+                          activeColor: Colors.blueAccent,
+                          contentPadding: EdgeInsets.zero,
                         ),
 
                         //language
@@ -133,26 +173,87 @@ class _PersonalDetailScreenState extends State<PersonalDetailScreen> {
                         const SizedBox(
                           height: 10,
                         ),
-                        const Text(
-                          "English",
-                          style: TextStyle(
-                              color: Colors.grey,
+
+                        CheckboxListTile(
+                          value: English,
+                          onChanged: (value) {
+                            setState(
+                              () {
+                                English = value!;
+                                g1.personalEnglish=value;
+                              },
+                            );
+                          },
+                          controlAffinity: ListTileControlAffinity.leading,
+                          contentPadding: EdgeInsets.zero,
+                          title: Text(
+                            "English",
+                            style: English==false?const TextStyle(
+                              color: Colors.blueAccent,
                               fontWeight: FontWeight.bold,
-                              fontSize: 15),
+                              fontSize: 18,
+                            ):const TextStyle(
+                              color: Colors.blueAccent,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            )
+
+                          ),
+                          activeColor: Colors.blueAccent,
                         ),
-                        const Text(
-                          "Hindi",
-                          style: TextStyle(
-                              color: Colors.grey,
+                        CheckboxListTile(
+                          value: Hindi,
+                          onChanged: (value) {
+                            setState(
+                              () {
+                                Hindi = value!;
+                                g1.personalHindi=value;
+                              },
+                            );
+                          },
+                          controlAffinity: ListTileControlAffinity.leading,
+                          contentPadding: EdgeInsets.zero,
+                          title: Text(
+                            "Hindi",
+                            style: Hindi==false?const TextStyle(
+                              color: Colors.blueAccent,
                               fontWeight: FontWeight.bold,
-                              fontSize: 15),
+                              fontSize: 18,
+                            ):const TextStyle(
+                              color: Colors.blueAccent,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            )
+
+                          ),
+                          activeColor: Colors.blueAccent,
                         ),
-                        const Text(
-                          "Gujarati",
-                          style: TextStyle(
-                              color: Colors.grey,
+                        CheckboxListTile(
+                          value: Gujrati,
+                          onChanged: (value) {
+                            setState(
+                              () {
+                                Gujrati = value!;
+                                g1.personalGujarati=value;
+                              },
+                            );
+                          },
+                          controlAffinity: ListTileControlAffinity.leading,
+                          contentPadding: EdgeInsets.zero,
+                          title: Text(
+                            "Gujarati",
+                            style: Gujrati==false?const TextStyle(
+                              color: Colors.blueAccent,
                               fontWeight: FontWeight.bold,
-                              fontSize: 15),
+                              fontSize: 18,
+                            ):const TextStyle(
+                              color: Colors.blueAccent,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            )
+
+                          ),
+                          activeColor: Colors.blueAccent,
                         ),
                         const SizedBox(
                           height: 10,
@@ -197,8 +298,7 @@ class _PersonalDetailScreenState extends State<PersonalDetailScreen> {
                               FocusManager.instance.primaryFocus?.unfocus();
                               if (formkey.currentState!.validate()) {
                                 g1.personalDOB = txtdob.text;
-                                g1.personalNationality =
-                                    txtnationality.text;
+                                g1.personalNationality = txtnationality.text;
 
                                 formkey.currentState!.reset();
 

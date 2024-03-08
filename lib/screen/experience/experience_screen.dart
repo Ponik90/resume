@@ -18,6 +18,8 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
 
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
+  String employed = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -166,25 +168,58 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                       const SizedBox(
                         height: 5,
                       ),
-                      const Row(
+                      Row(
                         children: [
-                          Text(
-                            "Previously Employed",
-                            style: TextStyle(
-                              color: Colors.blueAccent,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 13,
+                          Expanded(
+                            child: RadioListTile(
+                              value: "Previously",
+                              groupValue: employed,
+                              onChanged: (value) {
+                                setState(
+                                  () {
+                                    employed = value!;
+                                  },
+                                );
+                              },
+                              title: Text(
+                                "Previously Employed",
+                                style: employed=="Previously"?const TextStyle(
+                                  color: Colors.blueAccent,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ):const TextStyle(
+
+                                  fontSize: 13,
+                                )
+                              ),
+                              contentPadding: EdgeInsets.zero,
                             ),
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "Currently Employed",
-                            style: TextStyle(
-                              color: Colors.blueAccent,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 13,
+                          Expanded(
+                            child: RadioListTile(
+                              value: "Current",
+                              groupValue: employed,
+                              onChanged: (value) {
+                                setState(
+                                  () {
+                                    employed = value!;
+                                  },
+                                );
+                              },
+                              title: Text(
+                                "Currently Employed",
+                                style: employed == "Current"
+                                    ? const TextStyle(
+                                        color: Colors.blueAccent,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                      )
+                                    : const TextStyle(
+                                        fontSize: 13,
+                                      ),
+                              ),
+                              contentPadding: EdgeInsets.zero,
+                              tileColor: Colors.blueAccent,
                             ),
                           ),
                         ],
@@ -221,8 +256,7 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                                   textInputAction: TextInputAction.done,
                                   decoration: const InputDecoration(
                                     hintText: "DD/MM/YYYY",
-                                    hintStyle:
-                                        TextStyle(color: Colors.grey),
+                                    hintStyle: TextStyle(color: Colors.grey),
                                     border: OutlineInputBorder(),
                                   ),
                                   controller: txtdjoined,
@@ -258,8 +292,7 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                                   textInputAction: TextInputAction.done,
                                   decoration: const InputDecoration(
                                     hintText: "DD/MM/YYYY",
-                                    hintStyle:
-                                        TextStyle(color: Colors.grey),
+                                    hintStyle: TextStyle(color: Colors.grey),
                                     border: OutlineInputBorder(),
                                   ),
                                   controller: txtdexit,
