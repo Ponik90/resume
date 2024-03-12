@@ -242,7 +242,7 @@ class _PersonalDetailScreenState extends State<PersonalDetailScreen> {
                           contentPadding: EdgeInsets.zero,
                           title: Text(
                             "Gujarati",
-                            style: Gujrati==false?const TextStyle(
+                            style:Gujrati==false?const TextStyle(
                               color: Colors.blueAccent,
                               fontWeight: FontWeight.bold,
                               fontSize: 18,

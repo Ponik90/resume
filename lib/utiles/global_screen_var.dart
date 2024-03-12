@@ -16,9 +16,10 @@ class Global {
   String? personalDOB;
   String? personalStates;
   String? personalNationality;
-  bool personalEnglish=false;
-  bool personalHindi=false;
-  bool personalGujarati=false;
+  bool personalEnglish = false;
+  bool personalHindi = false;
+  bool personalGujarati = false;
+
   //eduction
   String? eductionCourse;
   String? eductionSchool;
@@ -33,8 +34,10 @@ class Global {
   String? experienceJoinedDate;
   String? experienceExitDate;
 
-  //project
+  //technical
 
+  List<String> techadd =[];
+  //project
   String? projectTitle;
   String? projectRoles;
   String? projectTechnologies;

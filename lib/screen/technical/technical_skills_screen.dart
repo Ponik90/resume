@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../utiles/global_screen_var.dart';
+
 class TechnicalSkillsScreen extends StatefulWidget {
   const TechnicalSkillsScreen({super.key});
 
@@ -8,12 +10,28 @@ class TechnicalSkillsScreen extends StatefulWidget {
 }
 
 class _TechnicalSkillsScreenState extends State<TechnicalSkillsScreen> {
-
   List<TextEditingController> l1 = [TextEditingController()];
+  List<String> l2 = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              for (int i = 0; i <= l1.length; i++) {
+                l2.add(l1[i].text);
+              }
+              g1.techadd = l2;
+            },
+            icon: const Icon(
+              Icons.check,
+              color: Colors.white,
+              size: 30,
+            ),
+          ),
+        ],
         backgroundColor: Colors.blueAccent,
       ),
       backgroundColor: Colors.grey.shade200,
@@ -52,51 +70,50 @@ class _TechnicalSkillsScreenState extends State<TechnicalSkillsScreen> {
                 ),
                 child: Column(
                   children: [
-                    Center(
-                      child: Text(
-                        "Enter Your Skills",
-                        style: TextStyle(
-                            color: Colors.black.withOpacity(0.5),
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
+                    Text(
+                      "Enter Your Skills",
+                      style: TextStyle(
+                          color: Colors.black.withOpacity(0.5),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Column(
+                      children: List.generate(
+                        l1.length,
+                        (index) => Row(
+                          children: [
+                            Expanded(
+                              child: TextField(
+                                keyboardType: TextInputType.name,
+                                textInputAction: TextInputAction.next,
+                                decoration: const InputDecoration(
+                                  hintText: "C Programing,Web Technical",
+                                  hintStyle: TextStyle(color: Colors.grey),
+                                ),
+                                controller: l1[index],
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  l1.removeAt(index);
+                                });
+                              },
+                              icon: const Icon(
+                                Icons.delete,
+                                size: 30,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-
                     const SizedBox(
                       height: 30,
                     ),
-
-                    Column(
-                      children: List.generate(l1.length, (index) =>  Row(
-                        children: [
-                          Expanded(
-                            child: TextField(
-                              keyboardType: TextInputType.name,
-                              textInputAction: TextInputAction.next,
-                              decoration: const InputDecoration(
-                                hintText: "C Programing,Web Technical",
-                                hintStyle: TextStyle(color: Colors.grey),
-                                
-                              ),
-                              controller: l1[index],  
-                            ),
-                            
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.delete,
-                              size: 30,
-                            ),
-                          )
-                        ],
-                      ),)
-                    ),
-
-                    const SizedBox(
-                      height: 30,
-                    ),
-
                     Container(
                       height: 50,
                       width: MediaQuery.sizeOf(context).width,
@@ -109,10 +126,11 @@ class _TechnicalSkillsScreenState extends State<TechnicalSkillsScreen> {
                       ),
                       child: IconButton(
                         onPressed: () {
-                          for(int i=0;i<=l1.length;i++)
-                            {
+                          setState(
+                            () {
                               l1.add(TextEditingController());
-                            }
+                            },
+                          );
                         },
                         icon: const Icon(
                           Icons.add,

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:resume/utiles/pdf_save.dart';
 
 import '../../utiles/global_screen_var.dart';
 
@@ -25,6 +26,12 @@ class _ResumeScreenState extends State<ResumeScreen> {
           ),
         ),
         centerTitle: true,
+        actions: [
+          IconButton(onPressed: (){
+
+            pdfmake();
+          }, icon: Icon(Icons.save))
+        ],
       ),
       backgroundColor: Colors.grey.shade200,
       body: Column(
@@ -302,7 +309,26 @@ class _ResumeScreenState extends State<ResumeScreen> {
                       height: 10,
                     ),
 
-                    
+                    const Text(
+                      "Technical skill : ",
+                      style: TextStyle(
+                        color: Colors.blueAccent,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: g1.techadd
+                          .map(
+                            (e) => Text(
+                              "$e",
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                          )
+                          .toList(),
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
