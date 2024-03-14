@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import '../../utiles/global_screen_var.dart';
+
 class AchievementScreen extends StatefulWidget {
   const AchievementScreen({super.key});
 
@@ -7,12 +10,29 @@ class AchievementScreen extends StatefulWidget {
 }
 
 class _AchievementScreenState extends State<AchievementScreen> {
+
+  List<TextEditingController> l1 = [TextEditingController()];
+  List<String> l2=[];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(
-      backgroundColor: Colors.blueAccent,
-
-    ),
+    return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              for (int i = 0; i < l1.length; i++) {
+                l2.add(l1[i].text);
+              }
+              g1.achieve = l2;
+            },
+            icon: const Icon(
+              Icons.check,
+              color: Colors.white,
+              size: 30,
+            ),
+          ),
+        ],        backgroundColor: Colors.blueAccent,
+      ),
       backgroundColor: Colors.grey.shade200,
       body: Column(
         children: [
@@ -46,45 +66,71 @@ class _AchievementScreenState extends State<AchievementScreen> {
                         borderRadius: BorderRadius.circular(10)),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children:[
-                        Center(child: Text("Enter Your Achievements",style: TextStyle(color: Colors.black.withOpacity(0.5),fontSize: 20,fontWeight: FontWeight.bold,),)),
+                      children: [
+                        Center(
+                          child: Text(
+                            "Enter Your Achievements",
+                            style: TextStyle(
+                              color: Colors.black.withOpacity(0.5),
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
 
                         // skill 1
                         const SizedBox(
                           height: 30,
                         ),
-                        const TextField(
-                          keyboardType: TextInputType.name,
-                          textInputAction: TextInputAction.next,
-                          decoration: InputDecoration(
-                              hintText: "Exceeded sales 17% average",
-                              hintStyle: TextStyle(color: Colors.grey),
-                              suffixIcon: Icon(Icons.delete)
-                          ),
+                        Column(
+                          children:
+                            List.generate(l1.length, (index) =>Row(
+                              children: [
+                                Expanded(
+                                  child: TextField(
+                                    keyboardType: TextInputType.name,
+                                    textInputAction: TextInputAction.next,
+                                    decoration: const InputDecoration(
+                                      hintText: "Exceeded sales 17% average",
+                                      hintStyle: TextStyle(color: Colors.grey),
+                                    ),
+                                    controller: l1[index],
+                                  ),
+                                ),
+                                IconButton(onPressed: (){
+                                  setState(() {
+                                    l1.removeAt(index);
+                                  });
+                                }, icon: const Icon(Icons.delete,size: 30,),)
+                              ],
+                            ),)
+                          ,
                         ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-
-                        //skill 2
-                        const TextField(
-                          keyboardType: TextInputType.name,
-                          textInputAction: TextInputAction.next,
-                          decoration: InputDecoration(
-                              hintText: "Exceeded sales 17% average",
-                              hintStyle: TextStyle(color: Colors.grey),
-                              suffixIcon: Icon(Icons.delete)
-                          ),
-                        ),
-
                         const SizedBox(
                           height: 30,
                         ),
-                        const TextField(
 
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.add,color: Colors.grey,),
-                            border: OutlineInputBorder(),
+                        Container(
+                          height: 50,
+                          width: MediaQuery.sizeOf(context).width,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.grey,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                l1.add(TextEditingController());
+                              },);
+                            },
+                            icon: const Icon(
+                              Icons.add,
+                              color: Colors.grey,
+                              size: 35,
+                            ),
                           ),
                         ),
                       ],
@@ -95,6 +141,7 @@ class _AchievementScreenState extends State<AchievementScreen> {
             ),
           ),
         ],
-      ),);
+      ),
+    );
   }
 }

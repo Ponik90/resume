@@ -27,10 +27,14 @@ class _ResumeScreenState extends State<ResumeScreen> {
         ),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: (){
-
-            pdfmake();
-          }, icon: Icon(Icons.save))
+          IconButton(
+            onPressed: () {
+              pdfmake();
+            },
+            icon: const Icon(
+              Icons.save,
+            ),
+          ),
         ],
       ),
       backgroundColor: Colors.grey.shade200,
@@ -309,6 +313,7 @@ class _ResumeScreenState extends State<ResumeScreen> {
                       height: 10,
                     ),
 
+                    //technical
                     const Text(
                       "Technical skill : ",
                       style: TextStyle(
@@ -324,11 +329,14 @@ class _ResumeScreenState extends State<ResumeScreen> {
                             (e) => Text(
                               "$e",
                               style: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           )
                           .toList(),
                     ),
+
                     const SizedBox(
                       height: 10,
                     ),
@@ -347,6 +355,43 @@ class _ResumeScreenState extends State<ResumeScreen> {
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Text(
+                      "Technologies  : ",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Visibility(
+                      visible: g1.cp,
+                      child: const Text(
+                        "C Programming",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Visibility(
+                      visible: g1.cpp,
+                      child: const Text(
+                        "CPP",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Visibility(
+                      visible: g1.flutter,
+                      child: const Text(
+                        "Flutter",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     Text(
@@ -371,7 +416,47 @@ class _ResumeScreenState extends State<ResumeScreen> {
                       ),
                     ),
 
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    //achievement
+
+                    const Text(
+                      "Achievement : ",
+                      style: TextStyle(
+                        color: Colors.blueAccent,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: g1.achieve
+                          .map(
+                            (e) => Text(
+                              "$e",
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          )
+                          .toList(),
+                    ),
+
+                    const SizedBox(
+                      height: 10,
+                    ),
+
                     //reference
+                    const Text(
+                      "Reference : ",
+                      style: TextStyle(
+                        color: Colors.blueAccent,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     Text(
                       "Reference Name : ${g1.referenceName}",
                       style: const TextStyle(

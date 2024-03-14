@@ -1,22 +1,29 @@
+import 'dart:io';
+
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 
 import 'global_screen_var.dart';
 
-var pdf = pw.Document();
-
 void pdfmake() async {
+  var pdf = pw.Document();
+  var image = pw.MemoryImage(
+    File("${g1.contactImage}").readAsBytesSync(),
+  );
+
   pdf.addPage(
     pw.Page(
       pageFormat: PdfPageFormat.a4,
       build: (pw.Context context) {
         return pw.Container(
-          padding: pw.EdgeInsets.all(10),
+          padding: const pw.EdgeInsets.all(10),
           color: PdfColors.white,
           child: pw.Column(
             crossAxisAlignment: pw.CrossAxisAlignment.start,
             children: [
               //image
+
+              pw.Image(image),
 
               //contact
               pw.Text(
@@ -335,4 +342,6 @@ void pdfmake() async {
       },
     ),
   );
+  final file =File ("/storage/emulated/0/Download/ponik.pdf");
+  await file.writeAsBytes(await pdf.save());
 }

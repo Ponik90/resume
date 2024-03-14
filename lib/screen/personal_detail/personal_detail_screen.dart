@@ -189,8 +189,7 @@ class _PersonalDetailScreenState extends State<PersonalDetailScreen> {
                           title: Text(
                             "English",
                             style: English==false?const TextStyle(
-                              color: Colors.blueAccent,
-                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
                               fontSize: 18,
                             ):const TextStyle(
                               color: Colors.blueAccent,
@@ -216,8 +215,8 @@ class _PersonalDetailScreenState extends State<PersonalDetailScreen> {
                           title: Text(
                             "Hindi",
                             style: Hindi==false?const TextStyle(
-                              color: Colors.blueAccent,
-                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+
                               fontSize: 18,
                             ):const TextStyle(
                               color: Colors.blueAccent,
@@ -243,8 +242,7 @@ class _PersonalDetailScreenState extends State<PersonalDetailScreen> {
                           title: Text(
                             "Gujarati",
                             style:Gujrati==false?const TextStyle(
-                              color: Colors.blueAccent,
-                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
                               fontSize: 18,
                             ):const TextStyle(
                               color: Colors.blueAccent,

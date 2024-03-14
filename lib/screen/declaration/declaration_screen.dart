@@ -37,41 +37,57 @@ class _DeclarationScreenState extends State<DeclarationScreen> {
           const SizedBox(
             height: 20,
           ),
-          Container(
-            height: 100,
-            width: MediaQuery.sizeOf(context).width * 0.90,
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Column(
-              children: [
-                Row(
+          Expanded(
+            child: SingleChildScrollView(
+              child: Container(
+                width: MediaQuery.sizeOf(context).width * 0.90,
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+
                   children: [
-                    const Text(
-                      "Declaration",
-                      style: TextStyle(
-                        color: Colors.blueAccent,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Spacer(),
-                    Switch(
-                      value: switchvalue,
-                      onChanged: (value) {
-                        setState(
-                          () {
-                            switchvalue = value;
+                    Row(
+                      children: [
+                        const Text(
+                          "Declaration",
+                          style: TextStyle(
+                            color: Colors.blueAccent,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const Spacer(),
+                        Switch(
+                          value: switchvalue,
+                          onChanged: (value) {
+                            setState(
+                              () {
+                                switchvalue = value;
+                              },
+                            );
                           },
-                        );
-                      },
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Icon(Icons.circle),
+
+                        const SizedBox(height: 30,),
+
+                        TextFormField(decoration: const InputDecoration(
+                          hintText: "Description",
+                          border: OutlineInputBorder(),
+                        ),)
+                      ],
                     ),
                   ],
                 ),
-                const Icon(Icons.circle),
-              ],
+              ),
             ),
           ),
         ],

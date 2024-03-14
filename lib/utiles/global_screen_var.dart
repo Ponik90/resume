@@ -37,12 +37,19 @@ class Global {
   //technical
 
   List<String> techadd =[];
+
   //project
   String? projectTitle;
   String? projectRoles;
   String? projectTechnologies;
   String? projectDescription;
+  bool cp=false;
+  bool cpp=false;
+  bool flutter=false;
 
+  //achievement
+
+  List<String> achieve=[];
   //reference
 
   String? referenceName;

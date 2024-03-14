@@ -10,13 +10,17 @@ class ProjectScreen extends StatefulWidget {
 }
 
 class _ProjectScreenState extends State<ProjectScreen> {
-
   TextEditingController txttitle = TextEditingController();
   TextEditingController txtroles = TextEditingController();
   TextEditingController txttechnologie = TextEditingController();
   TextEditingController txtdescription = TextEditingController();
 
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
+
+  bool cp = false;
+  bool cpp = false;
+  bool flutter = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,19 +82,104 @@ class _ProjectScreenState extends State<ProjectScreen> {
                         ),
                         controller: txttitle,
                         validator: (value) {
-                          if(value!.isEmpty || value==null)
-                            {
-                              return "this field is require";
-                            }
+                          if (value!.isEmpty || value == null) {
+                            return "this field is require";
+                          }
                         },
                       ),
-
                       const SizedBox(
                         height: 10,
                       ),
-
                       const Text(
                         "Technologies",
+                        style: TextStyle(
+                          color: Colors.blueAccent,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      CheckboxListTile(
+                        value: cp,
+                        onChanged: (value) {
+                          setState(() {
+                            cp = value!;
+                            g1.cp = value;
+                          });
+                        },
+                        title: Text(
+                          "C Programming",
+                          style: cp
+                              ? const TextStyle(
+                                  color: Colors.blueAccent,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                )
+                              : const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                ),
+                        ),
+                        activeColor: Colors.blueAccent,
+                        contentPadding: EdgeInsets.zero,
+                        controlAffinity: ListTileControlAffinity.leading,
+                      ),
+                      CheckboxListTile(
+                        value: cpp,
+                        onChanged: (value) {
+                          setState(() {
+                            cpp = value!;
+                            g1.cpp = value;
+                          });
+                        },
+                        title: Text(
+                          "CPP",
+                          style: cpp
+                              ? const TextStyle(
+                                  color: Colors.blueAccent,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                )
+                              : const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                ),
+                        ),
+                        activeColor: Colors.blueAccent,
+                        contentPadding: EdgeInsets.zero,
+                        controlAffinity: ListTileControlAffinity.leading,
+                      ),
+                      CheckboxListTile(
+                        value: flutter,
+                        onChanged: (value) {
+                          setState(
+                            () {
+                              flutter = value!;
+                              g1.flutter = value;
+                            },
+                          );
+                        },
+                        title: Text(
+                          "Flutter",
+                          style: flutter
+                              ? const TextStyle(
+                                  color: Colors.blueAccent,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                )
+                              : const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 18,
+                                ),
+                        ),
+                        activeColor: Colors.blueAccent,
+                        contentPadding: EdgeInsets.zero,
+                        controlAffinity: ListTileControlAffinity.leading,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text(
+                        "Roles",
                         style: TextStyle(
                           color: Colors.blueAccent,
                           fontWeight: FontWeight.bold,
@@ -100,44 +189,6 @@ class _ProjectScreenState extends State<ProjectScreen> {
                       const SizedBox(
                         height: 5,
                       ),
-                      const Text(
-                        "C Programming",
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const Text(
-                        "C++",
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const Text(
-                        "Flutter",
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      const SizedBox(height: 10,),
-
-                      const Text(
-                        "Roles",
-                        style: TextStyle(
-                          color: Colors.blueAccent,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      ),
-
-                      const SizedBox(height: 5,),
-
                       TextFormField(
                         maxLines: 2,
                         keyboardType: TextInputType.name,
@@ -149,9 +200,9 @@ class _ProjectScreenState extends State<ProjectScreen> {
                         ),
                         controller: txtroles,
                       ),
-
-                      const SizedBox(height: 10,),
-
+                      const SizedBox(
+                        height: 10,
+                      ),
                       const Text(
                         "Technologies",
                         style: TextStyle(
@@ -160,9 +211,9 @@ class _ProjectScreenState extends State<ProjectScreen> {
                           fontSize: 20,
                         ),
                       ),
-
-                      const SizedBox(height: 5,),
-
+                      const SizedBox(
+                        height: 5,
+                      ),
                       TextFormField(
                         keyboardType: TextInputType.name,
                         textInputAction: TextInputAction.next,
@@ -173,13 +224,11 @@ class _ProjectScreenState extends State<ProjectScreen> {
                         ),
                         controller: txttechnologie,
                         validator: (value) {
-                          if(value!.isEmpty || value==null)
-                          {
+                          if (value!.isEmpty || value == null) {
                             return "this field is require";
                           }
                         },
                       ),
-
                       const Text(
                         "Project Description",
                         style: TextStyle(
@@ -188,9 +237,9 @@ class _ProjectScreenState extends State<ProjectScreen> {
                           fontSize: 20,
                         ),
                       ),
-
-                      const SizedBox(height: 5,),
-
+                      const SizedBox(
+                        height: 5,
+                      ),
                       TextFormField(
                         maxLines: 2,
                         keyboardType: TextInputType.name,
@@ -202,13 +251,11 @@ class _ProjectScreenState extends State<ProjectScreen> {
                         ),
                         controller: txtdescription,
                         validator: (value) {
-                          if(value!.isEmpty || value==null)
-                          {
+                          if (value!.isEmpty || value == null) {
                             return "this field is require";
                           }
                         },
                       ),
-
                       const SizedBox(
                         height: 30,
                       ),

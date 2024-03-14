@@ -20,7 +20,7 @@ class _TechnicalSkillsScreenState extends State<TechnicalSkillsScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              for (int i = 0; i <= l1.length; i++) {
+              for (int i = 0; i < l1.length; i++) {
                 l2.add(l1[i].text);
               }
               g1.techadd = l2;
